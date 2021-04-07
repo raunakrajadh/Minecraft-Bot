@@ -1,6 +1,5 @@
 const mineflayer = require('mineflayer')
 const cmd = require('mineflayer-cmd').plugin
-const fs = require('fs');
 
 const config = require('./config.json')
 const host = config.ip
@@ -54,7 +53,7 @@ bot.on('time', (time) => {
 
             if (moving == 1) {
 
-                bot.setControlState(lastaction,false);
+                bot.setControlState(lastaction, false);
                 moving = 0;
                 lasttime = bot.time.age;
             }
@@ -67,7 +66,7 @@ bot.on('time', (time) => {
 
                 lastaction = actions[Math.floor(Math.random() * actions.length)];
 
-                bot.setControlState(lastaction,true);
+                bot.setControlState(lastaction, true);
 
                 moving = 1;
 
@@ -79,10 +78,10 @@ bot.on('time', (time) => {
     }
 });
 
-bot.on('spawn',function() {
+bot.on('spawn', () => {
     connected=1;
 });
 
-bot.on('death',function() {
+bot.on('death', () => {
     bot.emit("respawn")
 });
